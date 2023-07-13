@@ -41,6 +41,7 @@
             display: flex;
             justify-content: space-between;
         }
+
         label {
             font-family: Arial, sans-serif;
             font-size: 14px;
@@ -59,43 +60,46 @@
         <div class="col-md-6">
             <div class="card px-5 py-4">
                 <div style="text-align: center">
-                    <h1>Dịch vụ</h1>
+                    <h1><b>Trả Đồ</b></h1>
                 </div>
                 <form>
                     <div class="text-center mt-4 btn-group p-3 m-l-2">
                         <div class="text-center m-auto">
-                            <button type="button" class="btn btn-outline-primary " data-bs-toggle="modal"
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop">
                                 <b class="text-center">Chọn hợp đồng</b>
                             </button>
                         </div>
 
                     </div>
-                    <div class="mt-4 inputs"><label>Mã hợp đồng</label>
-                        <input disabled type="text" class="form-control" id="name" name="name"
-                        >
+                    <div class="row mt-2  ">
+                        <div class="col-lg-6 inputs form-group"><label>Mã HĐ</label>
+                            <input disabled type="text" class="form-control" name="">
+                        </div>
+                        <div class="col-lg-6 inputs form-group"><label>Tên khách hàng</label>
+                            <input disabled type="text" class="form-control" name="">
+                        </div>
                     </div>
-                    <div class="mt-2 inputs"><label>Tên khách hàng</label>
-                        <input disabled type="text" class="form-control" name="name"
-                        >
-                    </div>
-                    <div class="mt-2 inputs"><label>Đồ cầm</label>
+                    <div class="mt-2 inputs form-group"><label>Đồ cầm</label>
                         <input disabled value="" type="text" class="form-control" name="name"
                         >
                     </div>
 
-                    <div class="mt-2 inputs"><label>Tiền cho vay</label>
-                        <input disabled type="number" class="form-control" id="" name="birthday"
-                               min="1920-01-01">
+                    <div class="row mt-2  ">
+                        <div class="col-lg-6 inputs "><label>Tiền cho vay</label>
+                            <input disabled type="number" class="form-control" name="">
+                        </div>
+                        <div class="col-lg-6 inputs form-group"><label>Tiền lãi</label>
+                            <input disabled type="text" class="form-control" name="">
+                        </div>
                     </div>
-                    <div class="mt-2 inputs"><label>Tiền lãi</label>
-                        <input disabled type="text" class="form-control" name="idCard">
-                    </div>
-                    <div class="mt-2 inputs"><label>Ngày bắt đầu</label>
-                        <input disabled type="datetime-local" class="form-control" name="idCard">
-                    </div>
-                    <div class="mt-2 inputs"><label>Ngày kết thúc</label>
-                        <input disabled type="datetime-local" class="form-control" name="idCard">
+                    <div class="row mt-2  ">
+                        <div class="col-lg-6 inputs form-group"><label>Ngày bắt đầu</label>
+                            <input disabled type="date" class="form-control" name="">
+                        </div>
+                        <div class="col-lg-6 inputs form-group"><label>Ngày kết thúc</label>
+                            <input disabled type="date" class="form-control" name="">
+                        </div>
                     </div>
 
                     <div class="mt-2 inputs"><label>Tiền thanh toán</label>
@@ -114,7 +118,7 @@
                         </div>
                         <div class="text-center m-auto">
                             <button type="submit" class="btn btn-success">
-                                <b class="text-center">Thêm mới</b>
+                                <b class="text-center">Thanh toán</b>
                             </button>
                         </div>
                     </div>
@@ -127,11 +131,13 @@
 <!--Chọn hợp đồng-->
 <div class=" modal-xl modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div  class="modal-dialog  modal-dialog-centered">
-        <div  class="modal-content">
-            <div  style="background-color: #00833e; color: white"  class="modal-header" >
-                <h5 class="modal-title " style="width: 100%; text-align: center" id="staticBackdropLabel"><b>Chọn hợp đồng</b></h5>
-                <button type="button" class="btn-close" style="margin-left: 0px" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div style="background-color: #00833e; color: white" class="modal-header">
+                <h2 class="modal-title " style="width: 100%; text-align: center" id="staticBackdropLabel"><b>Chọn Hợp
+                    Đồng</b></h2>
+                <button type="button" class="btn-close" style="margin-left: 0px" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
             </div>
             <div class="d-flex">
                 <div class="modal-body">
@@ -139,43 +145,49 @@
 
                     <div class="controls">
                         <form action="">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="ma">Mã HĐ</label>
-                                    <input style="border-color: black" id="ma" type="text" name="name" class="form-control">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="ma">Mã HĐ</label>
+                                        <input style="border-color: black" id="ma" type="text" name="name"
+                                               class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="kh">Tên khách hàng</label>
+                                        <input style="border-color: black" id="kh" type="text" name="surname"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="doCam">Đồ cầm</label>
+                                        <input style="border-color: black" id="doCam" type="text" name="name"
+                                               class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="dateStart">Ngày làm hợp đòng</label>
+                                        <input style="border-color: black" id="dateStart" type="date" name="surname"
+                                               class="form-control">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12 d-flex justify-content-end" style="margin-top: 10px">
+                                    <button type="button" class="btn btn-outline-primary "><i class="bi bi-search"></i>
+                                    </button>
 
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="kh">Tên khách hàng</label>
-                                    <input style="border-color: black" id="kh" type="text" name="surname" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="doCam">Đồ cầm</label>
-                                    <input style="border-color: black" id="doCam" type="text" name="name" class="form-control">
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="dateStart">Ngày làm hợp đòng</label>
-                                    <input style="border-color: black" id="dateStart" type="date" name="surname" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-12 d-flex justify-content-end" style="margin-top: 10px">
-                                <button type="button" class="btn btn-outline-primary "><i class="bi bi-search"></i></button>
-                            </div>
-                        </div>
 
                         </form>
                     </div>
@@ -186,9 +198,9 @@
                                 <th class="text-center">Mã HĐ</th>
                                 <th class="text-center">Khách Hàng</th>
                                 <th class="text-center">Đồ Cầm</th>
-                                <th class="text-center">Tiền Cho Vay (VND)</th>
+                                <th class="text-center">Tiền Cho Vay (VNĐ)</th>
                                 <th class="text-center">Ngày Làm HĐ</th>
-                                <th class="text-center">Action</th>
+                                <th class="text-center">Chức Năng</th>
 
                             </tr>
                             </thead>
@@ -242,8 +254,9 @@
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
                                     </li>
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item " >
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item ">
                                         <a class="page-link" href="#">2</a>
                                     </li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
