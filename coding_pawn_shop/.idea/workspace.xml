@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c923282-e7d6-42e8-ab13-56453f23f50a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../[C0123G1]_Prototype_HoaTQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../[C0123G1]_Prototype_HoaTQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../prototype_giao_dien_tra_do/giao-dien-tra-do.html" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype_giao_dien_tra_do/giao-dien-tra-do.html" afterDir="false" />
-    </list>
+    <list default="true" id="0c923282-e7d6-42e8-ab13-56453f23f50a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +21,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/module_6_sprint_1/coding_pawn_shop"
+    "last_opened_file_path": "D:/module_6_sprint_1/coding_pawn_shop/demo1"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -36,6 +33,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689210275058</updated>
       <workItem from="1689210276283" duration="665000" />
+      <workItem from="1689231642179" duration="16000" />
     </task>
     <servers />
   </component>
