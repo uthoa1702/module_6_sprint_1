@@ -20,7 +20,6 @@ export const Redeeming = () => {
     };
 
 
-
     const paginate = (page) => {
         if (page > 1) {
             setPage(page - 1)
@@ -29,7 +28,6 @@ export const Redeeming = () => {
 
         }
     }
-
 
 
     const fetchContract = async () => {
@@ -153,7 +151,10 @@ export const Redeeming = () => {
                                                                 <td className="text-center">{contract.loans}</td>
                                                                 <td className="text-center">{contract.startDate}</td>
                                                                 <td className="text-center">
-                                                                    <button  onClick={() =>{ handleModalClose(true); setSelectedContract(contract.contractId)}} className="btn btn-success text-center">
+                                                                    <button onClick={() => {
+                                                                        handleModalClose(true);
+                                                                        setSelectedContract(contract.contractId)
+                                                                    }} className="btn btn-success text-center">
                                                                         Chọn
                                                                     </button>
                                                                 </td>
@@ -217,7 +218,7 @@ export const Redeeming = () => {
                                             type="text"
                                             className="form-control"
                                             name=""
-                                            value={contracts.find((c)=> c.contractId == selectedContract)?.contractCode }
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.contractCode}
                                         />
                                     </div>
                                     <div className="col-lg-6 inputs form-group">
@@ -227,7 +228,7 @@ export const Redeeming = () => {
                                             type="text"
                                             className="form-control"
                                             name=""
-                                            value={contracts.find((c)=> c.contractId == selectedContract)?.customerName}
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.customerName}
 
                                         />
                                     </div>
@@ -240,7 +241,7 @@ export const Redeeming = () => {
                                         type="text"
                                         className="form-control"
                                         name="name"
-                                        value={contracts.find((c)=> c.contractId == selectedContract)?.productName}
+                                        value={contracts.find((c) => c.contractId == selectedContract)?.productName}
 
                                     />
                                 </div>
@@ -252,7 +253,7 @@ export const Redeeming = () => {
                                             type="number"
                                             className="form-control"
                                             name=""
-                                            value={contracts.find((c)=> c.contractId == selectedContract)?.loans}
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.loans}
 
                                         />
                                     </div>
@@ -263,6 +264,8 @@ export const Redeeming = () => {
                                             type="text"
                                             className="form-control"
                                             name=""
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.profit}
+
 
                                         />
                                     </div>
@@ -275,7 +278,7 @@ export const Redeeming = () => {
                                             type="date"
                                             className="form-control"
                                             name=""
-                                            value={contracts.find((c)=> c.contractId == selectedContract)?.startDate}
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.startDate}
 
                                         />
                                     </div>
@@ -286,6 +289,8 @@ export const Redeeming = () => {
                                             type="date"
                                             className="form-control"
                                             name=""
+                                            value={contracts.find((c) => c.contractId == selectedContract)?.endDate}
+
                                         />
                                     </div>
                                 </div>
@@ -297,6 +302,8 @@ export const Redeeming = () => {
                                         className="form-control"
                                         name="birthday"
                                         min="1920-01-01"
+                                        value={contracts.find((c) => c.contractId == selectedContract)?.loans + contracts.find((c) => c.contractId == selectedContract)?.profit}
+
                                     />
                                 </div>
                                 <div className="mt-2 inputs">
