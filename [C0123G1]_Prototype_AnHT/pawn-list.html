@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách đồ cầm trong kho</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-default@4/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        header {
+            height: 10vh;
+            background-color: #282c34;
+        }
+
+        footer {
+            height: 10vh;
+            background-color: #282c34;
+        }
+
+        #content {
+            height: 90vh;
+        }
+
+        .content-profit {
+            height: 80vh;
+            /*background-color: #61dafb;*/
+        }
+
+        .nav-content {
+            list-style: none;
+        }
+        .nav-content li a {
+            border-radius: 0
+        }
+        .image-frame {
+            width: 250px; /* Kích thước khung ảnh cố định */
+            height: 250px;
+            overflow: hidden; /* Ẩn phần ảnh vượt quá kích thước khung */
+        }
+
+        .image-frame img {
+            width: 100%; /* Ảnh sẽ được thu nhỏ hoặc co dãn để vừa với khung */
+            height: auto;
+            object-fit: cover; /* Hiển thị ảnh mà không bị méo hoặc biến dạng */
+        }
+    </style>
+
+</head>
+<body>
+<header>
+
+</header>
+
+<div id="content" class="container">
+    <div class="row mt-5">
+        <div class="col-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    Thông tin cửa hàng
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Tài chính</a>
+                <a href="#" class="list-group-item list-group-item-action  active">Danh sách đồ cầm trong kho</a>
+                <a href="#" class="list-group-item list-group-item-action">Lịch sử giao giao dịch</a>
+                <a class="list-group-item list-group-item-action ">Top 10 hợp đồng mới nhất</a>
+                <a class="list-group-item list-group-item-action ">Thống kê lợi nhuận</a>
+            </div>
+        </div>
+        <div class="col-9 content-profit">
+            <div class="row justify-content-end d-flex">
+                <div class="col-4 " style="height: 3vw;width: 38.333333%">
+                    <div class="form-outline">
+                        <input id="search-input" type="search" id="form1" class="form-control" placeholder="Tên đồ " style="width: 97%;height: 2.9vw" />
+                    </div>
+                </div>
+                <div  class=" col-3 d-flex" style="width: 19.666667%;" >
+                    <select class="form-select " aria-label="Default select example">
+                        <option>Loại đồ</option>
+                        <option>Điện thoại</option>
+                        <option>Xe máy</option>
+                    </select>
+                </div>
+                <div class="col-2 d-flex" style="width: 6.666667%;">
+                    <button id="search-button" type="button" class="btn btn-outline-primary " style="margin-right: -12px">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="row mt-3">
+                <table class="table table-striped " border="1">
+                    <thead>
+                    <tr class="text-center">
+                        <th>Mã hợp đồng</th>
+                        <th>Tên đồ</th>
+                        <th>Loại đồ</th>
+                        <th>Trạng thái</th>
+                        <th>Giá mua(VND)</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-center">
+                        <td>HD001</td>
+                        <td>xe may Yamaha 2012</td>
+                        <td>xe may</td>
+                        <td>dang tien hanh</td>
+                        <td>10.000.000</td>
+                        <td>
+                            <button class="btn btn-sm btn-info">Chi tiết </button>
+                            <button class="btn btn-sm btn-success">Thanh lý</button>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>HD002</td>
+                        <td>e may Honda vision 2019</td>
+                        <td>xe may</td>
+                        <td>qua han</td>
+                        <td>20.000.000</td>
+                        <td>
+                            <button class="btn btn-sm btn-info">Chi tiết</button>
+                            <button class="btn btn-sm btn-success">Thanh lý</button>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>HD003</td>
+                        <td> iphone 12 </td>
+                        <td>dien thoai</td>
+                        <td>dang tien hanh</td>
+                        <td>7.000.000</td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"  >Chi tiết</button>
+                            <button class="btn btn-sm btn-success" onclick="showModal()">Thanh lý</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex col-12 justify-content-end">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                            </li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item " >
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Sau</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content" >
+            <div class="modal-header" align="center">
+                <h2 class="modal-title text-center" id="staticBackdropLabel"  > Chi tiết đồ cầm </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="row mb-4 mt-4 ">
+                <div class="col-sm-4  ">
+                    <div class=" image-frame col-sl-6" >
+                        <div class="card-body ">
+                            <img src="https://product.hstatic.net/200000281285/product/sh_160_tieu_chuan_do_den_5b652c376c47418f801bde61462e4a52_large.png" width="190" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8" style="width: 63.666667%;">
+                    <div class="">
+                        <div class="card-body ">
+                            <table class="table table-bordered"  >
+                                <tr class="row" >
+                                    <td class="col-sm-6"> Mã khách hàng</td>
+                                    <td class="col-sm-6"> kh123</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6"> Mã hợp đồng</td>
+                                    <td class="col-sm-6"> HD1234</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6"> Tên khách hàng</td>
+                                    <td class="col-sm-6"> Trung</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6"> Tên đồ cầm</td>
+                                    <td class="col-sm-6"> xe SH 2019</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-sm-6"> Loại đồ</td>
+                                    <td class="col-sm-6"> xe may</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6">Giá mua</td>
+                                    <td class="col-sm-6"> 50.000.000 VND</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6"> Ngày bắt đầu </td>
+                                    <td class="col-sm-6">16/02/2023</td>
+                                </tr>
+                                <tr class="row" >
+                                    <td class="col-sm-6">Ngày kết thúc</td>
+                                    <td class="col-sm-6">16/03/2023</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+
+</footer>
+<script>
+    const showModal = ()=>{
+        Swal.fire({
+            title: 'ban cho chac chuyen qua hang thanh ly khong?',
+            text: "Chu y ,ban se khong hoan tac duoc!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'dong y!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'da chuyen thanh cong',
+                    'do da duoc chuyen !',
+                    'thanh cong !'
+                )
+            }
+        })
+    }
+
+</script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
