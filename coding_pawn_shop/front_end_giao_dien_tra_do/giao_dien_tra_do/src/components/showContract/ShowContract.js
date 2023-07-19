@@ -2,13 +2,12 @@ import React, {useEffect, useState} from "react";
 import {Modal} from "react-bootstrap";
 
 import * as showAllContractService from '../service/ShowAllContractServices'
-import {Field, Form, Formik} from "formik";
 
 export const ShowContract = () => {
     const [showModal, setShowModal] = useState(false);
     const [page, setPage] = useState(0);
     const [totalPage, setTotalPage] = useState(0);
-    const [searchName, setSearchName] = useState('');
+    const [productName, setProductName] = useState('');
     const [searchType, setSearchType] = useState('');
     const [showDetail, setShowDetail] = useState(0);
     const [contracts, setContracts] = useState([]);
@@ -17,7 +16,9 @@ export const ShowContract = () => {
     const fetchAPI = () => {
         const rs = async () => {
             try {
-                const r = await showAllContractService.getAllContractPage(page, searchName, searchType)
+                const r = await showAllContractService.getAllContractPage(page, productName, searchType)
+                await setTotalPage(r.totalPages)
+
                 console.log("contract ..." + r.content)
                 await setContracts(r.content)
                 const type = await showAllContractService.getProductTypeList();
@@ -29,13 +30,25 @@ export const ShowContract = () => {
         }
         rs()
     }
+    const paginate = (page) => {
+
+        setPage(page)
+
+
+    }
     const getTypeId = (id) => {
+        setPage(0)
         setSearchType(id)
+    }
+    const handleInput = async (value) => {
+        setPage(0)
+
+        setProductName( value)
     }
 
     useEffect(() => {
         fetchAPI(page, contracts)
-    }, [])
+    }, [page, productName, searchType])
 
     console.log("loai do" + searchType)
 
@@ -43,7 +56,7 @@ export const ShowContract = () => {
         await setShowDetail(id)
         await setShowModal(true)
     }
-    console.log("id cua contract: " + searchName)
+    console.log("id cua contract: " + productName)
     return (
         <>
 
@@ -72,48 +85,39 @@ export const ShowContract = () => {
                     <div className="modal-body">
                         <div>
 
-                            <Formik initialValues={{
-                                productName: searchName,
-                                typeProduct: searchType
-                            }} onSubmit={
-                                (values) => {
-                                    const res = async () => {
-                                        await setSearchName(values.productName)
-                                        await setSearchType(values.productType)
-                                                await setPage(0)
-                                    }
 
-                                    res()
-                                    fetchAPI()
-                                }
-                            }>
-                                <Form action="" className="controls">
                                     <div
                                         className="row"
                                         style={{display: "flex", justifyContent: "end"}}
                                     >
                                         <div className="col-lg-3">
                                             <div className="form-group">
-                                                <Field
+                                                <input
                                                     style={{borderColor: "black"}}
                                                     id=""
                                                     type="text"
                                                     name="productName"
                                                     className="form-control"
+                                                    onChange={(event)=>{
+                                                        handleInput(event.target.value)
+                                                    }}
+                                                    value={productName}
+                                                    placeholder={"Tên đồ cầm"}
                                                 />
                                             </div>
                                         </div>
 
                                         <div className="col-lg-3">
                                             <div className="form-group">
-                                                <Field onClick={(event)=>{
+                                                <select onChange={(event)=>{
                                                     getTypeId(event.target.value)
                                                 }}
                                                     style={{borderColor: "black"}}
                                                     id="doCam"
-                                                    as="select"
+
                                                     name="typeProduct"
                                                     className="form-control"
+                                                       value={searchType}
 
                                                 >
                                                     <option value=''>Chọn loại đồ</option>
@@ -124,21 +128,13 @@ export const ShowContract = () => {
 
                                                         ))
                                                     }
-                                                </Field>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div className="col-lg-1">
-                                            <div className="form-group">
-                                                <button type="submit" className="btn btn-outline-primary ">
-                                                    <i className="bi bi-search"/>
-                                                </button>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <br/>
-                                </Form>
 
-                            </Formik>
                         </div>
                         <div>
                             <table className="table table-striped">
@@ -178,35 +174,40 @@ export const ShowContract = () => {
                             <div className="d-flex col-12 justify-content-end">
                                 <nav aria-label="...">
                                     <ul className="pagination">
-                                        <li className="page-item disabled">
-                                            <a
-                                                className="page-link"
-                                                href="#"
-                                                tabIndex={-1}
-                                                aria-disabled="true"
-                                            >
+                                        <li hidden={page === 0} className="page-item ">
+                                            <button className="page-link" tabIndex={-1}
+                                                    onClick={() => paginate(page - 1)}>
                                                 Trước
-                                            </a>
+                                            </button>
                                         </li>
-                                        <li className="page-item active" aria-current="page">
-                                            <a className="page-link" href="#">
-                                                1
-                                            </a>
-                                        </li>
-                                        <li className="page-item ">
-                                            <a className="page-link" href="#">
-                                                2
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#">
-                                                3
-                                            </a>
-                                        </li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#">
-                                                Sau
-                                            </a>
+                                        {/*<li className="page-item active" aria-current="page">*/}
+                                        {/*    <a className="page-link" href="#">*/}
+                                        {/*        1*/}
+                                        {/*    </a>*/}
+                                        {/*</li>*/}
+                                        {
+                                            Array.from({length: totalPage}, (a, index) => index).map((pageNum) => (
+                                                <li className="page-item">
+                                                    <button className={pageNum===page?"page-link active":"page-link"} key={pageNum}
+                                                            onClick={() => paginate(pageNum)}>
+                                                        {pageNum + 1}
+                                                    </button>
+                                                </li>
+                                            ))
+                                        }
+
+
+                                        {/*<li className="page-item">*/}
+                                        {/*    <a className="page-link" href="#">*/}
+                                        {/*        3*/}
+                                        {/*    </a>*/}
+                                        {/*</li>*/}
+                                        <li hidden={page + 1 === totalPage}
+                                            className="page-item">
+                                            <button className="page-link" tabIndex={-1}
+                                                    onClick={() => paginate(page + 1)}>
+                                                Tiếp
+                                            </button>
                                         </li>
                                     </ul>
                                 </nav>
@@ -250,7 +251,7 @@ export const ShowContract = () => {
                                 <div className=" image-frame col-sl-12">
                                     <div className="card-body ">
                                         <img
-                                            src="https://product.hstatic.net/200000281285/product/sh_160_tieu_chuan_do_den_5b652c376c47418f801bde61462e4a52_large.png"
+                                            src={contracts.find((c)=> c.contractId == showDetail)?.image}
                                             width={"100%"}
                                             alt=""
                                         />
@@ -263,36 +264,32 @@ export const ShowContract = () => {
                                         <table className="table table-bordered">
                                             <tbody>
                                             <tr className="row">
-                                                <th className="col-sm-6"> Mã khách hàng</th>
-                                                <td className="col-sm-6"> kh123</td>
-                                            </tr>
-                                            <tr className="row">
                                                 <th className="col-sm-6"> Mã hợp đồng</th>
-                                                <td className="col-sm-6"> HD1234</td>
+                                                <td className="col-sm-6"> {contracts.find((c)=>c.contractId == showDetail)?.contractCode}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6"> Tên khách hàng</th>
-                                                <td className="col-sm-6"> Trung</td>
+                                                <td className="col-sm-6"> {contracts.find((c)=>c.contractId == showDetail)?.customerName}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6"> Tên đồ cầm</th>
-                                                <td className="col-sm-6"> xe SH 2019</td>
+                                                <td className="col-sm-6">{contracts.find((c)=>c.contractId == showDetail)?.productName}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6"> Loại đồ</th>
-                                                <td className="col-sm-6"> xe may</td>
+                                                <td className="col-sm-6">{contracts.find((c)=>c.contractId == showDetail)?.productType}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6">Giá mua</th>
-                                                <td className="col-sm-6"> 50.000.000 VND</td>
+                                                <td className="col-sm-6">{contracts.find((c)=>c.contractId == showDetail)?.loans}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6"> Ngày bắt đầu</th>
-                                                <td className="col-sm-6">16/02/2023</td>
+                                                <td className="col-sm-6">{contracts.find((c)=>c.contractId == showDetail)?.startDate}</td>
                                             </tr>
                                             <tr className="row">
                                                 <th className="col-sm-6">Ngày kết thúc</th>
-                                                <td className="col-sm-6">16/03/2023</td>
+                                                <td className="col-sm-6">{contracts.find((c)=>c.contractId == showDetail)?.endDate}</td>
                                             </tr>
                                             </tbody>
                                         </table>

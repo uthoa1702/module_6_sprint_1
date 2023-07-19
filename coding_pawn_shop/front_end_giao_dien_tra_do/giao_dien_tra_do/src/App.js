@@ -6,8 +6,8 @@ import {ShowContract} from "./components/showContract/ShowContract";
 function App() {
   return (
     <>
-        <ShowContract/>
-      {/*<Redeeming/>*/}
+        {/*<ShowContract/>*/}
+      <Redeeming/>
     </>
   );
 }
