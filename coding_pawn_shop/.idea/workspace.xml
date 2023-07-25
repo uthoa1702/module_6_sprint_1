@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c923282-e7d6-42e8-ab13-56453f23f50a" name="Changes" comment="" />
+    <list default="true" id="0c923282-e7d6-42e8-ab13-56453f23f50a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/front_end_giao_dien_tra_do/giao_dien_tra_do/src/components/redeeming/ChooseContract.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_end_giao_dien_tra_do/giao_dien_tra_do/src/components/redeeming/Redeeming.js" beforeDir="false" afterPath="$PROJECT_DIR$/front_end_giao_dien_tra_do/giao_dien_tra_do/src/components/redeeming/Redeeming.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_end_giao_dien_tra_do/giao_dien_tra_do/src/components/redeeming/index.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,15 +20,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/module_6_sprint_1/coding_pawn_shop/demo1"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front_end_giao_dien_tra_do" />
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0c923282-e7d6-42e8-ab13-56453f23f50a" name="Changes" comment="" />
@@ -34,11 +39,12 @@
       <updated>1689210275058</updated>
       <workItem from="1689210276283" duration="665000" />
       <workItem from="1689231642179" duration="16000" />
+      <workItem from="1689816229696" duration="35000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -50,5 +56,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1689816264260">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="271" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1689816264260" />
   </component>
 </project>

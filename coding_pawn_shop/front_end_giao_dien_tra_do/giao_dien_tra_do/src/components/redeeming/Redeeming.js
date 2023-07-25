@@ -2,12 +2,19 @@ import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Modal} from 'react-bootstrap';
 import * as redeemingService from '../service/RedeemingService'
-import {Field, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Swal from "sweetalert2";
+import {getTimerProgressBar} from "sweetalert2";
+import {ThreeCircles} from "react-loader-spinner";
+import * as Yup from 'yup';
+import numeral from 'numeral';
+
 
 
 export const Redeeming = () => {
+    let  myFormRef = null;
     const [showModal, setShowModal] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [contractCode, setContractCode] = useState('');
     const [customerName, setCustomerName] = useState('');
     const [productName, setProductName] = useState('');
@@ -42,6 +49,7 @@ export const Redeeming = () => {
             console.log('API response:', response);
             await setContract(response.content)
             await setTotalPages(response.totalPages)
+
         } catch (error) {
             console.log('Error fetching contracts:', error);
         }
@@ -54,8 +62,9 @@ export const Redeeming = () => {
     useEffect(() => {
 
         fetchContract()
+
         console.log("trang so " + page)
-    }, [page, contractCode, customerName, productName, startDate, setSelectedContract])
+    }, [page, contractCode, customerName, productName, startDate, selectedContract, showModal])
 
     // const handleContractSelect = (contract) => {
     //     setSelectedContract(contract);
@@ -64,13 +73,16 @@ export const Redeeming = () => {
     console.log('Contracts:', contracts);
 
 
-    const reset = () => {
-        setContractCode('');
-        setCustomerName('');
-        setProductName('');
-        setStartDate('');
-        setSelectedContract(0);
+    const reset = async () => {
+        window.location.reload(false);
     }
+    const getToday = () => {
+        const today = new Date();
+        // Đặt giờ, phút, giây và mili giây về 0 để so sánh ngày mà không tính đến thời gian.
+        today.setHours(0, 0, 0, 0);
+        return today;
+    };
+
 
     return (
 
@@ -125,6 +137,16 @@ export const Redeeming = () => {
                                         show={showModal}
                                         onHide={handleModalClose}
                                         backdrop="static"
+
+
+                                        
+
+
+
+
+
+
+
                                         keyboard={false}
                                         centered
 
@@ -164,7 +186,7 @@ export const Redeeming = () => {
                                                         <div className="row">
                                                             <div className="col-lg-3">
                                                                 <div className="form-group">
-                                                                    <label htmlFor="ma">Mã HĐ</label>
+                                                                    <label htmlFor="ma">Mã hợp đồng</label>
                                                                     <Field id="ma"
                                                                            type="text" name="contractCode"
                                                                            className="form-control"/>
@@ -227,223 +249,274 @@ export const Redeeming = () => {
                                                     <th className="text-center">Chức Năng</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-
                                                 {
-                                                    contracts.map((contract) => (
-                                                        <tr key={contract.contractId}>
-                                                            <td className="text-center">{contract.contractCode}</td>
-                                                            <td className="text-center">{contract.customerName}</td>
-                                                            <td className="text-center">{contract.productName}</td>
-                                                            <td className="text-center">{contract.loans}</td>
-                                                            <td className="text-center">{contract.startDate}</td>
-                                                            <td className="text-center">
-                                                                <button onClick={() => {
-                                                                    handleModalClose(true);
-                                                                    setSelectedContract(contract.contractId)
-                                                                }} className="btn btn-success text-center">
-                                                                    Chọn
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    ))
-                                                }
+                                                    contracts.length===0 ? <tr>
+                                                        <td colSpan="6" className="text-center">
+                                                            <h4 style={{color: "red"}}>Dữ liệu không tồn tại</h4>
+                                                        </td>
+                                                    </tr>
+                                                        : <tbody>
 
-
-                                                {/* Other table rows */}
-                                                </tbody>
-                                            </table>
-                                            <div className="d-flex col-12 justify-content-end">
-                                                <nav aria-label="...">
-                                                    <ul className="pagination">
-                                                        <li hidden={page === 0} className="page-item ">
-                                                            <button className="page-link" tabIndex={-1}
-                                                                    onClick={() => paginate(page - 1)}>
-                                                                Trước
-                                                            </button>
-                                                        </li>
-                                                        {/*<li className="page-item active" aria-current="page">*/}
-                                                        {/*    <a className="page-link" href="#">*/}
-                                                        {/*        1*/}
-                                                        {/*    </a>*/}
-                                                        {/*</li>*/}
                                                         {
-                                                            Array.from({length: totalPages}, (a, index) => index).map((page) => (
-                                                                <li className="page-item">
-                                                                    <button className="page-link " key={page}
-                                                                            onClick={() => paginate(page)}>
-                                                                        {page + 1}
-                                                                    </button>
-                                                                </li>
+                                                            contracts.map((contract) => (
+                                                                <tr key={contract.contractId}>
+                                                                    <td className="text-center">{contract.contractCode}</td>
+                                                                    <td className="text-center">{contract.customerName}</td>
+                                                                    <td className="text-center">{contract.productName}</td>
+                                                                    <td className="text-center">{contract.loans}</td>
+                                                                    <td className="text-center">{contract.startDate}</td>
+                                                                    <td className="text-center">
+                                                                        <button onClick={() => {
+                                                                            handleModalClose(true);
+                                                                            setSelectedContract(contract.contractId)
+                                                                        }} className="btn btn-success text-center">
+                                                                            Chọn
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
                                                             ))
                                                         }
 
 
-                                                        {/*<li className="page-item">*/}
-                                                        {/*    <a className="page-link" href="#">*/}
-                                                        {/*        3*/}
-                                                        {/*    </a>*/}
-                                                        {/*</li>*/}
-                                                        <li hidden={page + 1 === totalPages}
-                                                            className="page-item">
-                                                            <button className="page-link" tabIndex={-1}
-                                                                    onClick={() => paginate(page + 1)}>
-                                                                Tiếp
-                                                            </button>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
+                                                        {/* Other table rows */}
+                                                        </tbody>
+
+                                                }
+
+                                            </table>
+                                            {
+                                                contracts.length === 0 ? '' : <div className="d-flex col-12 justify-content-end">
+                                                    <nav aria-label="...">
+                                                        <ul className="pagination">
+                                                            <li hidden={page === 0} className="page-item ">
+                                                                <button className="page-link" tabIndex={-1}
+                                                                        onClick={() => paginate(page - 1)}>
+                                                                    Trước
+                                                                </button>
+                                                            </li>
+
+
+                                                            {
+                                                                Array.from({length: totalPages}, (a, index) => index).map((page) => (
+                                                                    <li className="page-item">
+                                                                        <button className="page-link " key={page}
+                                                                                onClick={() => paginate(page)}>
+                                                                            {page + 1}
+                                                                        </button>
+                                                                    </li>
+                                                                ))
+                                                            }
+
+                                                            <li hidden={page + 1 === totalPages}
+                                                                className="page-item">
+                                                                <button className="page-link" tabIndex={-1}
+                                                                        onClick={() => paginate(page + 1)}>
+                                                                    Tiếp
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            }
+
                                         </Modal.Body>
                                     </Modal>
                                 </div>
                             </div>
+
                             <Formik initialValues={{
                                 contractId: selectedContract,
-                                redeemDate: ''
-                            }} onSubmit={(value) => {
+                                redeemDate: '',
+                                total: '',
+                                contractCode: '',
+                                customerName: '',
+                                name: '',
+                                loans: '',
+                                profit: '',
+                                startDate: '',
+                                endDate: '',
+
+
+
+
+                            }} validationSchema={Yup.object({
+                                redeemDate : Yup.date().required("Vui lòng nhập ngày trả đồ").min(getToday(), "Vui Lòng chọn ngày hiện tại").max(getToday(), "Vui Lòng chọn ngày hiện tại")
+                            })}
+                                    onSubmit={async (value, {setSubmitting}) => {
+                                setTimeout(() => {
+                                    setSubmitting(false)
+                                }, 4000)
                                 const res = async () => {
                                     try {
-                                        await redeemingService.redeem(selectedContract, value.redeemDate)
-                                        Swal.fire({
-                                            icon: "success",
-                                            title: "Đã chuộc thành công"
-                                        })
-                                        reset()
-                                        fetchContract()
-
+                                        const rs = await redeemingService.redeem(selectedContract, value.redeemDate);
                                     } catch (e) {
                                         console.log(e)
                                     }
                                 }
-                                res()
+                                await res().then(Swal.fire({
+                                    icon: "success",
+                                    title: "Đã chuộc thành công",
+
+                                }))
+                                await reset()
+                                await fetchContract()
+
 
                             }}>
-                                <Form>
-                                    <div className="row mt-2  ">
-                                        <div className="col-lg-6 inputs form-group">
-                                            <label>Mã HĐ</label>
-                                            <input
-                                                disabled
-                                                type="text"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.contractCode}
-                                            />
-                                        </div>
-                                        <div className="col-lg-6 inputs form-group">
-                                            <label>Tên khách hàng</label>
-                                            <input
-                                                disabled
-                                                type="text"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.customerName}
+                                {
+                                    ({isSubmitting}) => (
+                                        <>
+                                            <Form ref={(el) => myFormRef = el}>
+                                                <div className="row mt-2  ">
+                                                    <div className="col-lg-6 inputs form-group">
+                                                        <label>Mã HĐ</label>
+                                                        <Field
+                                                            disabled
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="contractCode"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.contractCode}
+                                                        />
+                                                    </div>
+                                                    <div className="col-lg-6 inputs form-group">
+                                                        <label>Tên khách hàng</label>
+                                                        <Field
+                                                            disabled
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="customerName"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.customerName}
 
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="mt-2 inputs form-group">
-                                        <label>Đồ cầm</label>
-                                        <input
-                                            disabled
-                                            defaultValue=""
-                                            type="text"
-                                            className="form-control"
-                                            name="name"
-                                            value={contracts.find((c) => c.contractId == selectedContract)?.productName}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="mt-2 inputs form-group">
+                                                    <label>Đồ cầm</label>
+                                                    <Field
+                                                        disabled
+                                                        defaultValue=""
+                                                        type="text"
+                                                        className="form-control"
+                                                        name="name"
+                                                        value={contracts.find((c) => c.contractId == selectedContract)?.productName}
 
-                                        />
-                                    </div>
-                                    <div className="row mt-2  ">
-                                        <div className="col-lg-6 inputs ">
-                                            <label>Tiền cho vay</label>
-                                            <input
-                                                disabled
-                                                type="number"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.loans}
+                                                    />
+                                                </div>
+                                                <div className="row mt-2  ">
+                                                    <div className="col-lg-6 inputs ">
+                                                        <label>Tiền cho vay</label>
+                                                        <Field
+                                                            disabled
+                                                            type="number"
+                                                            className="form-control"
+                                                            name="loans"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.loans}
+                                                        />
+                                                    </div>
+                                                    <div className="col-lg-6 inputs form-group">
+                                                        <label>Tiền lãi</label>
+                                                        <Field
+                                                            disabled
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="profit"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.profit}
 
-                                            />
-                                        </div>
-                                        <div className="col-lg-6 inputs form-group">
-                                            <label>Tiền lãi</label>
-                                            <input
-                                                disabled
-                                                type="text"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.profit}
 
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="row mt-2  ">
+                                                    <div className="col-lg-6 inputs form-group">
+                                                        <label>Ngày bắt đầu</label>
+                                                        <Field
+                                                            disabled
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="startDate"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.startDate}
 
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="row mt-2  ">
-                                        <div className="col-lg-6 inputs form-group">
-                                            <label>Ngày bắt đầu</label>
-                                            <input
-                                                disabled
-                                                type="text"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.startDate}
+                                                        />
+                                                    </div>
+                                                    <div className="col-lg-6 inputs form-group">
+                                                        <label>Ngày kết thúc</label>
+                                                        <Field
+                                                            disabled
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="endDate"
+                                                            value={contracts.find((c) => c.contractId == selectedContract)?.endDate}
 
-                                            />
-                                        </div>
-                                        <div className="col-lg-6 inputs form-group">
-                                            <label>Ngày kết thúc</label>
-                                            <input
-                                                disabled
-                                                type="text"
-                                                className="form-control"
-                                                name=""
-                                                value={contracts.find((c) => c.contractId == selectedContract)?.endDate}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="mt-2 inputs">
+                                                    <label>Tiền thanh toán</label>
+                                                    <Field
+                                                        disabled
+                                                        type="currency"
+                                                        className="form-control"
+                                                        name="total"
 
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="mt-2 inputs">
-                                        <label>Tiền thanh toán</label>
-                                        <input
-                                            disabled
-                                            type="number"
-                                            className="form-control"
-                                            name="birthday"
-                                            min="1920-01-01"
-                                            value={contracts.find((c) => c.contractId == selectedContract)?.loans + contracts.find((c) => c.contractId == selectedContract)?.profit}
+                                                        value={contracts.find((c) => c.contractId == selectedContract)?.loans + contracts.find((c) => c.contractId == selectedContract)?.profit}
 
-                                        />
-                                    </div>
-                                    <div className="mt-2 inputs">
-                                        <label>Ngày trả đồ</label>
-                                        <Field
-                                            type="date"
-                                            className="form-control"
-                                            name="redeemDate"
-                                        />
-                                    </div>
-                                    <div className="text-center mt-4 btn-group p-3 m-l-2">
-                                        <div className="text-center m-auto">
-                                            <button
-                                                type="button"
-                                                className="btn btn-secondary "
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop"
-                                            >
-                                                <b className="text-center">Quay lại</b>
-                                            </button>
-                                        </div>
-                                        <div className="text-center m-auto">
-                                            <button type="submit" className="btn btn-success">
-                                                <b className="text-center">Thanh toán</b>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </Form>
+                                                    />
+                                                </div>
+                                                <div className="mt-2 inputs">
+                                                    <label>Ngày trả đồ</label>
+                                                    <Field
+                                                        type="date"
+                                                        className="form-control"
+                                                        name="redeemDate"
+                                                    />
+                                                    <ErrorMessage component="span" name="redeemDate"/>
+                                                </div>
+                                                <div className="text-center mt-4 btn-group p-3 m-l-2">
+                                                    {/*<div className="text-center m-auto">*/}
+                                                    {/*    <button*/}
+                                                    {/*        type="button"*/}
+                                                    {/*        className="btn btn-secondary "*/}
+                                                    {/*        data-bs-toggle="modal"*/}
+                                                    {/*        data-bs-target="#staticBackdrop"*/}
+                                                    {/*    >*/}
+                                                    {/*        <b className="text-center">Quay lại</b>*/}
+                                                    {/*    </button>*/}
+                                                    {/*</div>*/}
+
+                                                    <div  className="text-center m-auto">
+                                                    {
+                                                      isSubmitting ? (<ThreeCircles
+                                                                height="100"
+                                                                width="100"
+                                                                color="#4fa94d"
+                                                                wrapperStyle={{}}
+                                                                wrapperClass=""
+                                                                visible={true}
+                                                                ariaLabel="three-circles-rotating"
+                                                                outerCircleColor=""
+                                                                innerCircleColor=""
+                                                                middleCircleColor=""
+                                                            />) :
+                                                            ( <div  className="text-center m-auto">
+                                                                    <button onClick={() => fetchContract()} hidden={!selectedContract} type="submit"
+                                                                            className="btn btn-success">
+                                                                        <b className="text-center">Thanh toán</b>
+                                                                    </button>
+                                                                </div>
+                                                            )
+
+                                                    }
+                                                    </div>
+
+                                                </div>
+                                            </Form>
+                                        </>
+
+                                    )
+                                }
 
                             </Formik>
+
 
                         </div>
                     </div>
