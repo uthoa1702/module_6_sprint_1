@@ -1,6 +1,7 @@
 package com.example.thi_thu.controller;
 
 import com.example.thi_thu.dto.OrdersDTO;
+import com.example.thi_thu.model.Customer;
 import com.example.thi_thu.service.IOrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")
@@ -27,6 +30,12 @@ public class OrderRestController {
         return new ResponseEntity<>(ordersDTOPage, HttpStatus.OK);
     }
 
+
+    @GetMapping("/customer")
+    public ResponseEntity<List<Customer>> getCustomerList () {
+        List<Customer> customers = iOrdersService.getListCustomer();
+        return new ResponseEntity<>(customers, HttpStatus.OK);
+    }
 //    @GetMapping("/")
 //    public ResponseEntity<Page<OrdersDTO>> getProlductList(@RequestParam(value = "page", defaultValue = "0") Integer page){
 //        Pageable pageable = PageRequest.of(page,5);

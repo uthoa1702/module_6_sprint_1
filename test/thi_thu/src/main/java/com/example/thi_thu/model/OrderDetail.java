@@ -20,6 +20,31 @@ public class OrderDetail {
     @JoinColumn(name = "order_id")
     private Orders order;
 
+    private Integer amount;
+
+    public OrderDetail(Long id, Double price, Product product, Orders order, Integer amount) {
+        this.id = id;
+        this.price = price;
+        this.product = product;
+        this.order = order;
+        this.amount = amount;
+    }
+
+    public OrderDetail(Double price, Product product, Orders order, Integer amount) {
+        this.price = price;
+        this.product = product;
+        this.order = order;
+        this.amount = amount;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
     public OrderDetail(Long id) {
         this.id = id;
     }
