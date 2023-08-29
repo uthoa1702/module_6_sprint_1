@@ -1,0 +1,22 @@
+
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·š†‡8÷¢‹Ù¡1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Éé›Ð8÷¢‹Ù¡1
+i
+java:S1223"LRename this method to prevent any misunderstanding or make it a constructor.(Çµí‘8÷¢‹Ù¡1
+e
+java:S2259"CA "NullPointerException" could be thrown; "text1" is nullable here.(Â‹ñÂýÿÿÿÿ8¶ô·Ù¡1
+a
+java:S1854"?Remove this useless assignment to local variable "firstNumber".(˜¨ôËúÿÿÿÿ8¸¬žÙ¡1
+X
+java:S1854";Remove this useless assignment to local variable "isEmpty".(äÈ¨š8¦á¶Ù¡1
+\
+java:S1854":Remove this useless assignment to local variable "length".(Â‹ñÂýÿÿÿÿ8à†·Ù¡1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ŠèÐÓ8š›·Ù¡1
+9
+java:S1116"Remove this empty statement.(ŠèÐÓ8š›·Ù¡1
+M
+java:S1481"+Remove this unused "length" local variable.(Â‹ñÂýÿÿÿÿ8á†·Ù¡1
+I
+java:S1481",Remove this unused "isEmpty" local variable.(äÈ¨š8¨á¶Ù¡1
+R
+java:S1481"0Remove this unused "firstNumber" local variable.(˜¨ôËúÿÿÿÿ8¹¬žÙ¡1

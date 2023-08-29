@@ -10,7 +10,7 @@ public class OrderDetail {
 
 
     @JoinColumn(nullable = false)
-    private Double price;
+    private Long price;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -22,7 +22,7 @@ public class OrderDetail {
 
     private Integer amount;
 
-    public OrderDetail(Long id, Double price, Product product, Orders order, Integer amount) {
+    public OrderDetail(Long id, Long price, Product product, Orders order, Integer amount) {
         this.id = id;
         this.price = price;
         this.product = product;
@@ -30,7 +30,7 @@ public class OrderDetail {
         this.amount = amount;
     }
 
-    public OrderDetail(Double price, Product product, Orders order, Integer amount) {
+    public OrderDetail(Long price, Product product, Orders order, Integer amount) {
         this.price = price;
         this.product = product;
         this.order = order;
@@ -49,12 +49,12 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public OrderDetail(Double price, Product product) {
+    public OrderDetail(Long price, Product product) {
         this.price = price;
         this.product = product;
     }
 
-    public OrderDetail(Double price, Product product, Orders order) {
+    public OrderDetail(Long price, Product product, Orders order) {
         this.price = price;
         this.product = product;
         this.order = order;
@@ -63,7 +63,7 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Long id, Double price, Product product, Orders order) {
+    public OrderDetail(Long id, Long price, Product product, Orders order) {
         this.id = id;
         this.price = price;
         this.product = product;
@@ -78,11 +78,11 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public Double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

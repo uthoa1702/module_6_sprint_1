@@ -1,0 +1,10 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—Öö üÿÿÿÿ8àæŽ›ž1
+X	java:S125"<This block of commented-out lines of code should be removed.(Ìœ“æ8¯›ž1
+G
+java:S2201"*The return value of "concat" must be used.(ÉªÏ·8ôæŽ›ž1
+J
+java:S2201"-The return value of "substring" must be used.(¬Ö 8ôæŽ›ž1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(æ¨¤šøÿÿÿÿ8õæŽ›ž1
+J
+java:S1172"(Remove this unused method parameter "n".(µ¬‰Åùÿÿÿÿ8õæŽ›ž1

@@ -1,0 +1,26 @@
+
+n
+java:S2095?"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ğ¢Å–şÿÿÿÿ8òñá¢1
+V
+java:S1118":Add a private constructor to hide the implicit public one.(ŒÅüg8ôñá¢1
+C
+java:S1128"&Remove this unused import 'java.math'.(âî©8ôè—á¢1
+G
+java:S1128"*Remove this unused import 'java.security'.(èÛò§8ôè—á¢1
+C
+java:S1128"&Remove this unused import 'java.text'.(ë¼Èí8ôè—á¢1
+C
+java:S1128"&Remove this unused import 'java.util'.(Î€ŒÙ8ôè—á¢1
+M
+java:S1128"1Remove this unused import 'java.util.concurrent'.(íĞ¢68õè—á¢1
+L
+java:S1128"/Remove this unused import 'java.util.function'.(Üş’¿8õè—á¢1
+I
+java:S1128",Remove this unused import 'java.util.regex'.(£‘¬Ş8õè—á¢1
+O
+java:S1128	"-Remove this unused import 'java.util.stream'.(§æĞçøÿÿÿÿ8õè—á¢1
+b
+java:S1128
+"@Remove this unused import 'java.util.stream.Collectors.joining'.(Æñ¿âşÿÿÿÿ8õè—á¢1
+\
+java:S1128"?Remove this unused import 'java.util.stream.Collectors.toList'.(ã‚ºÎ8õè—á¢1

@@ -1,0 +1,13 @@
+
+V	java:S125
+"<This block of commented-out lines of code should be removed.(²ô®Îıÿÿÿÿ
+D
+java:S2140")Use "java.util.Random.nextInt()" instead.(­»Åúÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(’âŸ€øÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Üö°ì
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ

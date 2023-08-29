@@ -1,0 +1,11 @@
+
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ˆ£¦ƒùÿÿÿÿ8æ¡€ú›1
+L
+java:S1172"*Remove this unused method parameter "abc".(ÀÈÀêşÿÿÿÿ8”íãÕ›1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(†ñÀÌıÿÿÿÿ8İ´ãÕ›1
+O
+java:S1172 "2Remove these unused method parameters "abc", "id".(ˆ ¼¿8Ç™ìÕ›1
+Z	java:S106&"9Replace this use of System.out or System.err by a logger.(†ñÀÌıÿÿÿÿ8ƒÏéÕ›1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8í¡€ú›1

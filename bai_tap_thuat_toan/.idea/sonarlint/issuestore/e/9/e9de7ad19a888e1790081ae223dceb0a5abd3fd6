@@ -1,0 +1,20 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öäÂ–ÿÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ³´í
+u
+java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "a".(–Ö——üÿÿÿÿ
+h
+java:S3776	"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Çµí‘
+N	java:S106+"9Replace this use of System.out or System.err by a logger.(”¬‚ß
+P	java:S125-"<This block of commented-out lines of code should be removed.(¾Ú­x
+P	java:S125V"<This block of commented-out lines of code should be removed.(¾ø€
+P	java:S125f"<This block of commented-out lines of code should be removed.(ÀÖŞ|
+S	java:S106v"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ
+>
+java:S1172y"(Remove this unused method parameter "n".(€èÄ£
+U
+java:S1155”">Use isEmpty() to check whether the collection is empty or not.(ôöÏÙ
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+C
+java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX

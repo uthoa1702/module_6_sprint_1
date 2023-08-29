@@ -1,0 +1,7 @@
+
+9
+java:S1643"Use a StringBuilder instead.(ê°©Û8ÂÓ¬ñ›1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(×Æáî8íÓ¬ñ›1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Å­Ëİúÿÿÿÿ8îÓ¬ñ›1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ñÓ¬ñ›1

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47f53d64-c223-46aa-8eba-e80c9863f354" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../bai_tap_thuat_toan/src/dem_so_lan_xuat_hien_phan_tu_bat_ki/Count.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai_tap_thuat_toan/src/tinh_tong_snt/TongNT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/headerHome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/list-san-pham.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../prototype_giao_dien_tra_do/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/CreatePlayer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/PenaltyList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/Top5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/service/PenaltyService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/service/PlayerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi_thiet/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/repository/IOrderDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/controller/PenaltyRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/controller/PlayerRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/dto/IPlayerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/dto/PlayerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/model/Area.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/model/Penalty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/model/PlayerModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/model/TeamModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/repository/IPenaltyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/repository/IPlayerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/repository/ITeamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/service/IPenaltyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/service/IPlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/service/impl/PenaltyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../thi_thiet_m6/thi_thu/src/main/java/com/example/thi_thu/service/impl/PlayerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CreateButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CreateOrderForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/CustomerTable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/OrderList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Pagination.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/service/OrderService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/ValidExpiredDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/ValidExpiredDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/controller/OrderRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/controller/OrderRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/model/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/repository/OrdersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/repository/OrdersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/IOrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/IOrdersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/impl/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/impl/OrdersServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../thi_thu/src/main/java/com/example/thi_thu/service/impl/ProductService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2TMuCaORAzLcHRPF56JlForb6k5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../jamesie_app_web/jamesie_fe_1" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47f53d64-c223-46aa-8eba-e80c9863f354" name="Default Changelist" comment="" />
+      <created>1690865143068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690865143068</updated>
+      <workItem from="1690865144249" duration="1004000" />
+      <workItem from="1690869140237" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1690869158177">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="271" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1690869158177" />
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1690869108242">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1690869108242" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1690869108241">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1690869108241" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1690869108241">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1690869108241" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1690869108241">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1690869108241" />
+  </component>
+</project>

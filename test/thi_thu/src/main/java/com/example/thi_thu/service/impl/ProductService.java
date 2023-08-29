@@ -27,6 +27,11 @@ public class ProductService implements IProductService {
         iProductRepository.create(product.getName(), productDTO.getPrice(), productDTO.getExpiredDate(), productDTO.getProductType()) ;
     }
 
+    @Override
+    public Product findById(Long productId) {
+        return iProductRepository.findById(productId).get();
+    }
+
     private Page<ProductDTO> transformDTO(Page<IProductDTO> productDTOPage){
         return productDTOPage.map(projection -> {
             ProductDTO productDTO = new ProductDTO();
